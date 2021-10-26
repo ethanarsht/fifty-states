@@ -1,0 +1,27 @@
+---
+title: "title"
+description: |
+  "desc"
+---
+
+<!--statemap-->
+
+## Expected Partisanship
+
+<!--partisanship-->
+
+## Compactness
+
+<!--compactness-->
+
+# Summary Statistics
+
+<!--sumstat-->
+
+# Redistricting requirements
+
+<!--reqs-->
+
+# Download the Data
+
+[Download](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/SLCD3E)
