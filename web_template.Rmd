@@ -4,15 +4,46 @@ description: |
   "desc"
 ---
 
-<!--statemap-->
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE, results='hide'}
+library(redist, warn.conflicts = FALSE)
+library(tidyverse)
+map <- readRDS("data-out/<!--analysis_name-->/<!--state-->_cd_<!--year-->_map.rds")
+plans <- readRDS("data-out/<!--analysis_name-->/<!--state-->_cd_<!--year-->_plans.rds")
+plans <- plans %>%
+    mutate(dvs = group_frac(map, ndv, ndv + nrv))
+```
+
+
+
+
+```{r}
+redist::redist.plot.plans(plans, sample(1:5000, 3), geom = map)
+```
+
 
 ## Expected Partisanship
 
-<!--partisanship-->
+```{r}
+redist.plot.distr_qtys(plans, dvs, color_thresh = 0.5)
+```
+
+## Partisan Bias
+
+```{r}
+redist.plot.hist(plans, pbias)
+```
+
 
 ## Compactness
 
-<!--compactness-->
+```{r}
+redist.plot.distr_qtys(plans, polsby_popper)
+```
+
 
 # Summary Statistics
 
