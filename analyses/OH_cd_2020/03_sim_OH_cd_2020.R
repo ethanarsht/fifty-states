@@ -24,6 +24,7 @@ constr <- redist_constr(map_cleve) %>%
     add_constr_grp_hinge(-20.0, vap_black, vap, 0.25)
 
 set.seed(2020)
+N <- 5000 # simulations
 
 pl_cleve <- redist_smc(map_cleve, N, runs = 4, counties = split_unit,
     constraints = constr, n_steps = 1, pop_temper = 0.05, verbose = TRUE) %>%
@@ -31,7 +32,6 @@ pl_cleve <- redist_smc(map_cleve, N, runs = 4, counties = split_unit,
     number_by(black)
 
 # prepare for simulating remainder
-N <- 30000 # simulations
 
 m_cleve <- pl_cleve %>%
     group_by(draw) %>%
